@@ -10,5 +10,5 @@ if (fs.existsSync(`./${lambda}.zip`)) {
 
 execSync('rm -rf node_modules');
 execSync('npm install --production');
-execSync(`zip -r ${lambda}.zip . -x "*.git*" "deploy.js" "local.js" "package*", "readme.md"`);
+execSync(`zip -r ${lambda}.zip . -x "*.git*" "deploy.js" "local.js" "package.json", "package-lock.json", "readme.md"`);
 execSync(`aws lambda update-function-code --function-name '${lambda}' --zip-file fileb://${lambda}.zip --region=us-west-2 --profile bluehost`);
