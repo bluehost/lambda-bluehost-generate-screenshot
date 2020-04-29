@@ -20,14 +20,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "chrome-aws-lambda": "^1.20.4",
+    "chrome-aws-lambda": "^2.1.1",
     "npm-force-resolutions": "0.0.3",
-    "puppeteer-core": "^1.20.0"
+    "puppeteer-core": "^2.1.1"
   },
   "devDependencies": {
     "husky": "^4.2.5",
     "lint-staged": "^10.2.0",
-    "puppeteer": "^1.20.0",
+    "puppeteer": "^2.1.1",
     "yaml-lint": "^1.2.4"
   },
   "engines": {
