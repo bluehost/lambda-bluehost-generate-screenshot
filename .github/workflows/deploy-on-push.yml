@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+    paths:
+      - index.js
+      - package.json
+      - package-lock.json
 
 jobs:
   deploy:
