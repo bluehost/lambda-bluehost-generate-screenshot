@@ -1,26 +1,41 @@
 {
-  "name": "lambda-generate-screenshot",
-  "version": "1.0.0",
+  "name": "lambda-bluehost-generate-screenshot",
   "description": "An AWS Lambda function for generating a screenshot from a URL.",
   "main": "index.js",
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluehost/lambda-generate-screenshot.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "url": "git+https://github.com/bluehost/lambda-bluehost-generate-screenshot.git"
   },
   "author": "Micah Wood <micah@wpscholar.com>",
-  "license": "ISC",
+  "license": "GPL-2.0-or-later",
   "bugs": {
-    "url": "https://github.com/bluehost/lambda-generate-screenshot/issues"
+    "url": "https://github.com/bluehost/lambda-bluehost-generate-screenshot/issues"
   },
-  "homepage": "https://github.com/bluehost/lambda-generate-screenshot#readme",
+  "homepage": "https://github.com/bluehost/lambda-bluehost-generate-screenshot#readme",
+  "scripts": {
+    "deploy": "node deploy.js",
+    "lint": "yamllint --ignore=node_modules/** **/*.yml",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "chrome-aws-lambda": "^1.20.0",
     "puppeteer-core": "^1.20.0"
   },
   "devDependencies": {
-    "puppeteer": "^1.20.0"
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.0",
+    "puppeteer": "^1.20.0",
+    "yaml-lint": "^1.2.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.yml": [
+      "yamllint --ignore=node_modules/**"
+    ]
   }
 }
